@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" data-static-site="true">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | SILM</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+<header class="header">
+    <div class="container nav">
+        <a href="index.html" class="logo-link" aria-label="Silm home">
+            <h2 class="logo">Silm</h2>
+        </a>
+
+        <button class="hamburger" aria-label="Menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="account.html" class="nav-auth nav-auth-primary">Create Account</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="overlay"></div>
+
+<main>
+    <div class="container auth-container">
+        <div class="card auth-card">
+            <h2 class="card-title">Login</h2>
+
+            <form method="POST" class="form" data-static-form="login">
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label><br>
+                    <input type="email" name="email" id="email" class="form-input" required placeholder="Enter your email">
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="form-label">Password</label><br>
+                    <input type="password" name="password" id="password" class="form-input" required placeholder="Enter your password">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Login</button>
+                <p class="form-message" aria-live="polite"></p>
+            </form>
+
+            <p class="auth-footer">
+                Don't have an account? <a href="account.html">Create Account</a>
+            </p>
+            <p class="auth-footer">
+                <a href="forgotPassword.html">Forgot Password?</a>
+            </p>
+        </div>
+    </div>
+</main>
+</body>
+</html>

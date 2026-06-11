@@ -1,0 +1,321 @@
+<?php
+require_once __DIR__ . '/session.php';
+$contactSent = isset($_GET['success']);
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Silm | Software Solutions Company</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container nav">
+        <a href="#hero" class="logo-link" aria-label="Silm home">
+            <h2 class="logo">Silm</h2>
+        </a>
+
+        <button class="hamburger" aria-label="Menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <li><a href="dashboard.php" class="nav-auth">Dashboard</a></li>
+                    <li><a href="logout.php" class="nav-auth nav-auth-primary">Logout</a></li>
+                    <li class="welcome-text">Welcome, <?php echo htmlspecialchars($_SESSION['user_name']); ?></li>
+                <?php else: ?>
+                    <li><a href="login.php" class="nav-auth">Login</a></li>
+                    <li><a href="account.html" class="nav-auth nav-auth-primary">Create Account</a></li>
+                <?php endif; ?>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="overlay"></div>
+
+<main>
+    <section id="hero" class="hero">
+        <div class="hero-visual" aria-hidden="true">
+            <div class="visual-window">
+                <div class="window-bar">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="visual-dashboard">
+                    <div class="visual-panel visual-panel-large">
+                        <small>Project sprint</small>
+                        <strong>72%</strong>
+                        <div class="progress-track"><span></span></div>
+                    </div>
+                    <div class="visual-panel">
+                        <small>Deployments</small>
+                        <strong>18</strong>
+                    </div>
+                    <div class="visual-panel">
+                        <small>Open tasks</small>
+                        <strong>6</strong>
+                    </div>
+                    <div class="visual-feed">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container hero-content">
+            <p class="eyebrow">Software strategy, design, and engineering</p>
+            <h1>Custom software solutions that move your business forward</h1>
+            <p>
+                Silm helps businesses plan, build, launch, and improve reliable digital products, from websites and portals to business automation tools and full web applications.
+            </p>
+
+            <div class="hero-actions">
+                <button class="btn btn-primary" type="button" data-open-chat>Start a Project</button>
+                <a class="btn btn-secondary" href="#services">Explore Services</a>
+            </div>
+
+            <div class="hero-proof" aria-label="Silm delivery strengths">
+                <span>Product planning</span>
+                <span>Secure builds</span>
+                <span>Ongoing support</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section reveal">
+        <div class="container">
+            <div class="section-heading">
+                <p class="eyebrow">What we build</p>
+                <h2>Software solutions for real business needs</h2>
+                <p>We combine clean engineering with practical business thinking so every product is useful, scalable, and easy to maintain.</p>
+            </div>
+
+            <div class="grid services-grid">
+                <article class="card service-card reveal">
+                    <span class="card-index">01</span>
+                    <h3>Custom Web Applications</h3>
+                    <p>Dashboards, portals, booking systems, client platforms, and internal tools built around your workflow.</p>
+                </article>
+
+                <article class="card service-card reveal">
+                    <span class="card-index">02</span>
+                    <h3>Business Automation</h3>
+                    <p>Automate repetitive tasks, connect data, reduce manual errors, and give your team faster ways to work.</p>
+                </article>
+
+                <article class="card service-card reveal">
+                    <span class="card-index">03</span>
+                    <h3>Websites and E-commerce</h3>
+                    <p>Modern company websites, landing pages, online stores, and content systems designed to convert visitors.</p>
+                </article>
+
+                <article class="card service-card reveal">
+                    <span class="card-index">04</span>
+                    <h3>API and Cloud Integration</h3>
+                    <p>Connect payment systems, CRMs, analytics, databases, and third-party platforms into one smooth system.</p>
+                </article>
+
+                <article class="card service-card reveal">
+                    <span class="card-index">05</span>
+                    <h3>UI and Product Design</h3>
+                    <p>Turn early ideas into clear user journeys, polished interfaces, and practical launch-ready product plans.</p>
+                </article>
+
+                <article class="card service-card reveal">
+                    <span class="card-index">06</span>
+                    <h3>Maintenance and Support</h3>
+                    <p>Improve performance, fix issues, add features, and keep your software stable after launch.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="section alt reveal">
+        <div class="container">
+            <div class="section-heading">
+                <p class="eyebrow">How we work</p>
+                <h2>A simple path from idea to launch</h2>
+            </div>
+
+            <div class="process-list">
+                <article class="process-item">
+                    <span>1</span>
+                    <div>
+                        <h3>Discovery</h3>
+                        <p>We clarify the business goal, users, required features, timeline, and best technical path.</p>
+                    </div>
+                </article>
+
+                <article class="process-item">
+                    <span>2</span>
+                    <div>
+                        <h3>Design and Build</h3>
+                        <p>We design the core experience, develop the solution, and keep progress visible throughout the project.</p>
+                    </div>
+                </article>
+
+                <article class="process-item">
+                    <span>3</span>
+                    <div>
+                        <h3>Launch and Improve</h3>
+                        <p>We test, deploy, monitor, and continue improving the product as your needs grow.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section reveal">
+        <div class="container">
+            <div class="section-heading">
+                <p class="eyebrow">Why choose Silm</p>
+                <h2>Built for clarity, security, and growth</h2>
+            </div>
+
+            <div class="grid">
+                <article class="card reveal">
+                    <h3>Fast Development</h3>
+                    <p>We focus on the highest-value features first so your product can reach users sooner.</p>
+                </article>
+
+                <article class="card reveal">
+                    <h3>Secure by Design</h3>
+                    <p>Your application is planned with data protection, authentication, and safe coding practices in mind.</p>
+                </article>
+
+                <article class="card reveal">
+                    <h3>Fully Responsive</h3>
+                    <p>Your product works smoothly across phones, tablets, laptops, and desktop screens.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section alt reveal">
+        <div class="container about-layout">
+            <div>
+                <p class="eyebrow">About Silm</p>
+                <h2>A software partner for growing teams</h2>
+            </div>
+            <p>
+                Silm is a software solution company focused on simplicity, performance, and scalability. We help businesses turn ideas into reliable digital products using clean, maintainable code and thoughtful user experience.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact" class="section reveal">
+        <div class="container contact-layout">
+            <div class="contact-copy">
+                <p class="eyebrow">Talk to us</p>
+                <h2>Tell us what you want to build</h2>
+                <p>
+                    Send a message with your project idea, business challenge, or website need. You can also use the chat button for a faster project-style conversation.
+                </p>
+                <div class="contact-actions">
+                    <button class="btn btn-primary" type="button" data-open-chat>Open Messaging</button>
+                    <a class="btn btn-secondary" href="mailto:hello@silm.com">Email Silm</a>
+                </div>
+            </div>
+
+            <form action="contact.php" method="POST" class="form contact-form" data-async-contact>
+                <input type="hidden" name="source" value="contact_form" />
+                <input type="text" name="company" class="hidden-field" tabindex="-1" autocomplete="off" />
+                <input type="text" name="name" placeholder="Your name" required />
+                <input type="email" name="email" placeholder="Your email" required />
+                <textarea name="message" rows="6" placeholder="Tell us about your project" required></textarea>
+
+                <button class="btn btn-secondary" type="submit">Send Message</button>
+
+                <p class="form-message" aria-live="polite">
+                    <?php if ($contactSent): ?>
+                        Message sent successfully. We will get back to you soon.
+                    <?php endif; ?>
+                </p>
+            </form>
+        </div>
+    </section>
+</main>
+
+<div class="chat-widget" id="message">
+    <button class="chat-launcher" type="button" data-open-chat aria-label="Open messaging" aria-expanded="false">
+        <span class="chat-launcher-icon">Message</span>
+    </button>
+
+    <section class="chat-panel" aria-label="Silm messaging panel" hidden>
+        <div class="chat-header">
+            <div>
+                <p class="eyebrow">Silm messaging</p>
+                <h2>Project conversation</h2>
+                <p class="chat-presence">Messages stay here on this device.</p>
+            </div>
+            <div class="chat-header-actions">
+                <button class="chat-clear" type="button" data-clear-chat>Clear</button>
+                <button class="chat-close" type="button" aria-label="Close messaging">Close</button>
+            </div>
+        </div>
+
+        <div class="chat-thread" aria-live="polite" data-chat-thread></div>
+
+        <div class="quick-prompts" aria-label="Quick project prompts">
+            <button type="button" data-chat-prompt="I need a company website for my business.">Company website</button>
+            <button type="button" data-chat-prompt="I need a custom web application or dashboard.">Web application</button>
+            <button type="button" data-chat-prompt="I want to automate part of my business workflow.">Automation</button>
+        </div>
+
+        <form action="contact.php" method="POST" class="chat-form" data-chat-form>
+            <input type="hidden" name="source" value="website_chat" />
+            <input type="hidden" name="conversation_id" value="" />
+            <input type="text" name="company" class="hidden-field" tabindex="-1" autocomplete="off" />
+            <input type="file" class="hidden-field" data-chat-file accept="audio/*,video/*" />
+            <p class="chat-profile-note">Your details are remembered on this browser for this conversation.</p>
+            <div class="chat-field-row">
+                <input type="text" name="name" placeholder="Name" required />
+                <input type="email" name="email" placeholder="Email" required />
+            </div>
+            <select name="topic" aria-label="Project type">
+                <option value="General project">General project</option>
+                <option value="Website">Website</option>
+                <option value="Web application">Web application</option>
+                <option value="Automation">Automation</option>
+                <option value="Support">Support</option>
+            </select>
+            <div class="chat-attachment-preview" data-attachment-preview hidden></div>
+            <div class="chat-composer">
+                <div class="chat-input-shell">
+                    <button class="chat-tool-button" type="button" data-attach-media aria-label="Attach audio or video">+</button>
+                    <textarea name="message" rows="1" placeholder="Message"></textarea>
+                    <button class="chat-tool-button" type="button" data-record-voice aria-label="Record voice message">Mic</button>
+                </div>
+                <button class="chat-send-button" type="submit" aria-label="Send message">Send</button>
+            </div>
+            <p class="chat-status" aria-live="polite"></p>
+        </form>
+    </section>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2026 Silm. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>
